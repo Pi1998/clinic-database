@@ -4,13 +4,13 @@ Create Table patients (
     date_of_birth Date
 );
 
-Create Table medical_history (
+Create Table medical_histories (
     id Int Primary Key,
     admitted_at Timestamp,
-    patients_id Int,
+    patient_id Int,
     status Varchar(100),
     Constraint fk_medical_history_patients 
-		Foreign Key (patients_id)
+		Foreign Key (patient_id)
     		References patients(id)
 );
 
@@ -40,8 +40,8 @@ Create Table invoice_items (
     unit_price Decimal(5, 2),
     quantity Int,
     total_price Decimal(5, 2),
-    invoices_ID Int,
-    treatments_ID Int,
+    invoice_id Int,
+    treatments_id Int,
     Constraint fk_invoice_items_invoices 
 		Foreign Key (invoices_id)
     		References invoices(id),
@@ -65,4 +65,3 @@ CREATE INDEX idx_patient_treatment ON patient_treatment(patients_id);
 CREATE INDEX idx_treatments_id ON patient_treatment(treatments_id);
 CREATE INDEX idx_invoice_items ON invoice_items(invoice_items_id);
 CREATE INDEX idx_invoice ON invoices(total_amount);
-

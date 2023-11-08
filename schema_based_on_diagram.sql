@@ -60,3 +60,9 @@ Create Table patient_treatment (
 		Foreign Key(treatments_id)
     		References treatments(id)
 );
+
+CREATE INDEX idx_patient_treatment ON patient_treatment(patients_id);
+CREATE INDEX idx_treatments_id ON patient_treatment(treatments_id);
+CREATE INDEX idx_invoice_items ON invoice_items(invoice_items_id);
+CREATE INDEX idx_invoice ON invoices(total_amount);
+
